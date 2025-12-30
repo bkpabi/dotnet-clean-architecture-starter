@@ -1,0 +1,33 @@
+using CleanArch.ApplicationCore.Contracts;
+using CleanArch.Infrastructure.Data.DBContext;
+using CleanArch.Infrastructure.IOC;
+using CleanArch.WebApi;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Register UI-specific services
+builder.Services.AddScoped<IAuthenticatedUser, AuthenticatedUser>();
+// Register infrastructure, application, and domain services
+builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddApplicationServices();
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
