@@ -17,6 +17,11 @@ The architecture emphasizes:
 ## 🏗️ Architecture Overview
 <img width="687" height="277" alt="image" src="https://github.com/user-attachments/assets/4ea4af3a-3022-40a5-bc4a-b52ce02dcedc" />
 
+## 🏗️ System Architecture
+
+The following diagram illustrates the high-level architecture of the application, following Clean Architecture principles and separation of concerns.
+
+![Architecture Diagram](docs/architecture-diagram.jpg)
 
 ## 🧩 Tech Stack
 
